@@ -32,9 +32,9 @@ async def start(_, message):
     lang = Language()
     buttons = ButtonMaker()
     buttons.url_button(
-        lang.START_BUTTON1, "https://t.me/NxLeech"
+        lang.START_BUTTON1, "https://t.me/NxMirror"
     )
-    buttons.url_button(lang.START_BUTTON2, "https://t.me/KRSHNAA")
+    buttons.url_button(lang.START_BUTTON2, "https://t.me/NxSuppoort")
     reply_markup = buttons.build_menu(2)
 
     if len(message.command) > 1 and message.command[1] == "wzmlx":
