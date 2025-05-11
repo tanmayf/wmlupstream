@@ -176,49 +176,49 @@ class WZMLStyle:
     # ---------------------
 
     # def get_readable_message(): ---> bot_utilis.py
+    
     ####--------OVERALL MSG HEADER----------
-    STATUS_NAME = "<b><i>{Name}</i></b>"
-
-    #####---------PROGRESSIVE STATUS-------
-    BAR = "\n┃ {Bar}"
-    PROCESSED = "\n┠ <b>Processed:</b> {Processed}"
-    STATUS = '\n┠ <b>Status:</b> <a href="{Url}">{Status}</a>'
-    ETA = " | <b>ETA:</b> {Eta}"
-    SPEED = "\n┠ <b>Speed:</b> {Speed}"
-    ELAPSED = " | <b>Elapsed:</b> {Elapsed}"
-    ENGINE = "\n┠ <b>Engine:</b> {Engine}"
-    STA_MODE = "\n┠ <b>Mode:</b> {Mode}"
-    SEEDERS = "\n┠ <b>Seeders:</b> {Seeders} | "
-    LEECHERS = "<b>Leechers:</b> {Leechers}"
-
-    ####--------SEEDING----------
-    SEED_SIZE = "\n┠ <b>Size: </b>{Size}"
-    SEED_SPEED = "\n┠ <b>Speed: </b> {Speed} | "
-    UPLOADED = "<b>Uploaded: </b> {Upload}"
-    RATIO = "\n┠ <b>Ratio: </b> {Ratio} | "
-    TIME = "<b>Time: </b> {Time}"
-    SEED_ENGINE = "\n┠ <b>Engine:</b> {Engine}"
-
-    ####--------NON-PROGRESSIVE + NON SEEDING----------
-    STATUS_SIZE = "\n┠ <b>Size: </b>{Size}"
-    NON_ENGINE = "\n┠ <b>Engine:</b> {Engine}"
-
-    ####--------OVERALL MSG FOOTER----------
-    USER = "\n┠ <b>User:</b> <code>{User}</code> | "
-    ID = "<b>ID:</b> <code>{Id}</code>"
-    BTSEL = "\n┠ <b>Select:</b> {Btsel}"
-    CANCEL = "\n┖ {Cancel}\n\n"
+    STATUS_NAME = "<b><i>{Name}</i></b>
+"
+    BAR = "{Bar} » {Progress}%"
+    STATUS = "
+├✺ : {Status} 📥"
+    PROCESSED = "
+├Pʀᴏᴄᴇssᴇᴅ   : {Processed} of {Total}"
+    SPEED = "
+├Sᴘᴇᴇᴅ  : {Speed}"
+    ETA = "
+├Esᴛɪᴍᴀᴛᴇᴅ    : {Eta}"
+    ELAPSED = "
+├Eʟᴀᴘsᴇᴅ   : {Elapsed}"
+    USER = "
+├Usᴇʀ   : {User}"
+    ID = "
+├ID : {Id}"
+    STA_MODE = "
+├Uᴘʟᴏᴀᴅ : {Mode}"
+    ENGINE = "
+├Tᴏᴏʟ : {Engine}"
+    CANCEL = "
+├Sᴛᴏᴘ : {Cancel}
+"
 
     ####------FOOTER--------
-    FOOTER = "⌬ <b><i>Bot Stats</i></b>\n"
-    TASKS = "┠ <b>Tasks:</b> {Tasks}\n"
-    BOT_TASKS = "┠ <b>Tasks:</b> {Tasks}/{Ttask} | <b>AVL:</b> {Free}\n"
-    Cpu = "┠ <b>CPU:</b> {cpu}% | "
-    FREE = "<b>F:</b> {free} [{free_p}%]"
-    Ram = "\n┠ <b>RAM:</b> {ram}% | "
-    uptime = "<b>UPTIME:</b> {uptime}"
-    DL = "\n┖ <b>DL:</b> {DL}/s | "
-    UL = "<b>UL:</b> {UL}/s"
+    FOOTER = "
+⌬ <b><i>Bot Stats</i></b>"
+    TASKS = "
+┠ <b>Tasks:</b> {Tasks}"
+    BOT_TASKS = "
+┠ <b>Tasks:</b> {Tasks}/{Ttask} | <b>AVL:</b> {Free}"
+    Cpu = "
+┠ <b>CPU:</b> {cpu}%"
+    FREE = " | <b>F:</b> {free} [{free_p}%]"
+    Ram = "
+┠ <b>RAM:</b> {ram}%"
+    uptime = " | <b>UPTIME:</b> {uptime}"
+    DL = "
+┠ <b>DL:</b> {DL}/s"
+    UL = " | <b>UL:</b> {UL}/s"
 
     ###--------BUTTONS-------
     PREVIOUS = "⫷"
@@ -303,3 +303,11 @@ class WZMLStyle:
 ┠<b> Leech Dumps :</b> <code>{LDUMP}</code>
 ┠<b> Leech Remname :</b> <code>{LREMNAME}</code>
 ┖<B> Leech Metadata :</b> <code>{LMETA}</code>"""
+
+
+# ---------------------
+# Utility Function for Dynamic Progress Bar
+def make_progress_bar(progress: float, total_slots: int = 10):
+    filled = round((progress / 100) * total_slots)
+    return "●" * filled + "○" * (total_slots - filled)
+    
